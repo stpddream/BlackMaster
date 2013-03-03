@@ -1,3 +1,7 @@
+/**
+ *  MainActivity of PocketVIP
+ */
+
 package org.phillyvip.pocketvip.view;
 
 import java.io.IOException;
