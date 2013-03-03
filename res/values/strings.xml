@@ -25,6 +25,7 @@
     <string name="profile_autoMessage">Enter auto-message to VIP</string>
     <string name="btn_profile_submit">Submit to VIP</string>
     <string name="btn_profile_save">Save</string>
+    <string name="btn_profile_home">Home</string>
     <string name="btn_caseDetail_apply">Apply</string>
     <string name="tw_profile_phone">Phone number</string>
     <string name="app_mail_host">smtp.gmail.com</string>
@@ -33,10 +34,6 @@
     <string name="vipmailapp_subject">Zhulan has a xiao gao yang!</string>
     <string name="vipmailapp_body">Cong qian you ge master yang, one day he suddenly becomes complicated!!
         Complicated!!!! And so he is complicated blackmaster.</string>
-    
-    
-    
-    
-    
+       
 
 </resources>

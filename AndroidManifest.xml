@@ -28,6 +28,12 @@
         <activity
             android:name="org.phillyvip.pocketvip.view.DetailActivity">
         </activity>
+        
+        <activity 
+            android:name="org.phillyvip.pocketvip.view.ProfileActivity" 
+            android:label="@string/app_name">
+        </activity>
+        
     </application>
 
 </manifest>

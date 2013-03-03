@@ -1,5 +1,10 @@
 package org.phillyvip.pocketvip.data;
 
+import org.phillyvip.pocketvip.R;
+
+import android.view.View;
+import android.widget.Button;
+
 public class Profile {
 	private String firstName;
 	private String lastName;
@@ -7,6 +12,16 @@ public class Profile {
 	private String telephone;
 	private String barNumber;
 	private String autoMessage;
+	
+	//constructor 
+	public Profile(String a, String b,String c,String d,String e,String f){
+		this. firstName = a;
+		this.lastName = b;
+		this.email = c;
+		this.telephone = d;
+		this.barNumber = e;
+		this.autoMessage = f;
+	}
 
 	//Preference preference
 	public boolean setFirstName(String firstName) {
@@ -14,41 +29,43 @@ public class Profile {
 		return true;
 	}
 	//hahaha
-	
+
 	public boolean setLastName(String lastName) {
 		this.lastName = lastName;
 		return true;
 	}
-	
+
 	public boolean setEmail(String email) {
 		this.email = email;
 		return true;
 	}
-	
+
 	public boolean setTelephone(String telephone) {
 		this.telephone = telephone;
 		return true;
 	}
-	
+
 	public boolean setBarNumber(String barNumber) {
 		this.barNumber = barNumber;
 		return true;
 	}
-	
+
 	public boolean setAutoMessage(String autoMessage){
 		this.autoMessage = autoMessage;
 		return true;
 	}
-	
+
 	public String toString(){
 		String format = "|%1$-10s|%2$-10s|\n";
-	    String a = String.format(format,"First name: ",firstName);
-	    String b = String.format(format, "Last name: ",lastName);
-	    String c = String.format(format, "Email : ",email);
-	    String d = String.format(format, "Telephone : ",telephone);
-	    String e = String.format(format, "Bar number : ",barNumber);
-	    String f = String.format(format, "Auto Message : ",autoMessage);
-	    String profile = a+b+c+d+e+f;
-	    return profile;
-	    }
+		String a = String.format(format,"First name: ",firstName);
+		String b = String.format(format, "Last name: ",lastName);
+		String c = String.format(format, "Email : ",email);
+		String d = String.format(format, "Telephone : ",telephone);
+		String e = String.format(format, "Bar number : ",barNumber);
+		String f = String.format(format, "Auto Message : ",autoMessage);
+		String profile = a+b+c+d+e+f;
+		return profile;
+	}
+
+	
 }

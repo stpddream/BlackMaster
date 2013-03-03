@@ -26,14 +26,13 @@
             android:id="@+id/tw_profile_firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tw_profile_firstName"  />
+            android:text="@string/tw_profile_firstName" />
 
         <EditText
             android:id="@+id/profile_firstName"
             android:layout_height="wrap_content"
             android:hint="@string/profile_firstName"
             android:inputType="textPersonName" />
-
     </TableRow>
 
     <TableRow>
@@ -106,7 +105,7 @@
             android:id="@+id/tw_profile_barNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tw_profile_barNum"/>
+            android:text="@string/tw_profile_barNum" />
 
         <EditText
             android:id="@+id/profile_barNum"
@@ -114,7 +113,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/profile_barNum"
-            android:inputType="number"  />
+            android:inputType="number" />
     </TableRow>
 
     <TableRow>
@@ -128,17 +127,17 @@
             android:id="@+id/tw_profile_autoMessage"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/tw_autoMessage" 
-            android:layout_weight=".5"/>
+            android:layout_weight=".5"
+            android:text="@string/tw_autoMessage" />
 
         <EditText
             android:id="@+id/profile_autoMessage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_weight="1.5"
             android:hint="@string/profile_autoMessage"
             android:inputType="textMultiLine"
-            android:scrollbarAlwaysDrawVerticalTrack="true"
-            android:layout_weight="1.5" >
+            android:scrollbarAlwaysDrawVerticalTrack="true" >
 
             <requestFocus />
         </EditText>
@@ -148,23 +147,35 @@
         android:id="@+id/profile_tableRow_btn"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-        android:weightSum="2"  >
+        android:layout_alignParentBottom="true"
+        android:weightSum="2" >
 
         <Button
             android:id="@+id/btn_profile_save"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="@string/btn_profile_save"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_profile_save" />
 
         <Button
             android:id="@+id/btn_profile_submit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:text="@string/btn_profile_submit"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_profile_submit" />
+    </TableRow>
+          android:id="@+id/profile_tableRow_btn_home"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true" >
 
+    <Button
+        android:id="@+id/btn_profile_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_profile_home" />
+
+    <TableRow>
     </TableRow>
 
 </TableLayout>

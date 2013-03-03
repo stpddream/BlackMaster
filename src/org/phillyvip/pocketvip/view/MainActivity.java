@@ -30,6 +30,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import org.phillyvip.pocketvip.test.*;
@@ -39,18 +40,21 @@ public class MainActivity extends Activity {
 	
 	private CaseListAdapter caseAdapter;
 	private ListView lvCaseList;
+	private Button btnProfile;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		/*View Init*/
+		/* View Init */
 		TextView testView = (TextView) findViewById(R.id.tw_case);
 		lvCaseList = (ListView)findViewById(R.id.lv_cases);
 		LinkedList<Case> caseList = new LinkedList<Case>();
+		 btnProfile = (Button)findViewById(R.id.nav_settings);
+		
+		 /* Event Handlers */
 		lvCaseList.setOnItemClickListener(new OnItemClickListener() {
-
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
@@ -60,6 +64,14 @@ public class MainActivity extends Activity {
 				startActivity(detailIntent);
 			}
 		});
+		
+		btnProfile.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+        		Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+        		MainActivity.this.startActivity(profileIntent);
+            }
+        });
+		
 		
 		/*Retrive Data*/
 				
@@ -74,7 +86,7 @@ public class MainActivity extends Activity {
 			e.printStackTrace();
 		}
 	
-		
+		/////////////////////// Test Block /////////////////////////////
 		Log.i(VIPTest.TESTTAG, "File Stored");
 		Log.i(VIPTest.TESTTAG, "Size" + caseList.size());
 		
@@ -87,7 +99,11 @@ public class MainActivity extends Activity {
 		}
 		
 		Log.i(VIPTest.TESTTAG,"Goon!!");
+		////////////////////// Test Block //////////////////////////////
 	
+		
+		
+		
 		caseAdapter = new CaseListAdapter(this, R.layout.case_list, caseList);
 		
 		lvCaseList.setAdapter(caseAdapter);
