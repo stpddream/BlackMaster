@@ -1,3 +1,7 @@
+/**
+ *  Activity for detail page of a case
+ */
+
 package org.phillyvip.pocketvip.view;
 
 import javax.mail.AuthenticationFailedException;
