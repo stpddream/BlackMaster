@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<nodes>
+  <node>
+    <Category>Contracts</Category>
+    <Topic>Null</Topic>
+    <CaseNumber>13-0033275</CaseNumber>
+    <UrgentFlag>True</UrgentFlag>
+    <Description>Client needs assistance in an insurance matter</Description>
+  </node>
+        
+  <node>
+    <Category>Contracts</Category>
+    <Topic>Null</Topic>
+    <CaseNumber>12-0032823</CaseNumber>
+    <UrgentFlag>False</UrgentFlag>
+    <Description>Clients s roof and interior of home were damaged by storms in 2011</Description>
+    </node>
+    
+  <node>
+    <Category>Divorce</Category>
+    <Topic>Divorce with Equitable Distribution</Topic>
+    <CaseNumber>13-0033269</CaseNumber>
+    <UrgentFlag>False</UrgentFlag>
+    <Description>Client/Husband and OP/Wife were married in June 2003</Description>
+    </node>
+        
+  <node>
+    <Category>Guardianship</Category>
+    <Topic>Null</Topic>
+    <CaseNumber>13-0033188</CaseNumber>
+    <UrgentFlag>False</UrgentFlag>
+    <Description>Client seeks assistance in obtaining guardianship of her mother</Description>
+    </node>
+  
+    <node>
+    <Category>Incorporation</Category>
+    <Topic>Falsen-profit/Incorporation</Topic>
+    <CaseNumber>13-0033086</CaseNumber>
+    <UrgentFlag>False</UrgentFlag>
+    <Description>Client is a community garden located in Kensington</Description>
+    </node>
+  
+</nodes>

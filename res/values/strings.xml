@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PocketVIP</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="nav_case">Case</string>
+    <string name="nav_event">Event</string>
+    <string name="nav_settings">Settings</string>
+    <string name="tw_profile">Profile</string>
+    <string name="profile_firstName">Enter first name </string>
+    <string name="profile_lastName">Enter last name</string>
+    <string name="profile_email">Enter email address</string>
+    <string name="profile_barNum">Enter bar number </string>
+    <string name="profile_phone">Enter phone number</string>
+    <string name="tw_casetitle">Cases</string>
+    <string name="ex_case">clicked case</string>
+   
+    
+    <string name="tw_profile_firstName">First Name</string>
+    <string name="tw_profile_lastName">Last Name</string>
+    <string name="tw_profile_email">Email Address</string>
+    <string name="tw_profile_barNum">BarNo.(optional)</string>
+    <string name="tw_autoMessage">Auto-message</string>
+    <string name="profile_autoMessage">Enter auto-message to VIP</string>
+    <string name="btn_profile_submit">Submit to VIP</string>
+    <string name="btn_profile_save">Save</string>
+    <string name="btn_caseDetail_apply">Apply</string>
+    <string name="tw_profile_phone">Phone number</string>
+    <string name="app_mail_host">smtp.gmail.com</string>
+    <string name="vipmail_user">phillyvipapp@gmail.com</string>
+    <string name="vipmail_pw">complicatedblackmaster</string>
+    <string name="vipmailapp_subject">Zhulan has a xiao gao yang!</string>
+    <string name="vipmailapp_body">Cong qian you ge master yang, one day he suddenly becomes complicated!!
+        Complicated!!!! And so he is complicated blackmaster.</string>
+    
+    
+    
+    
+    
+
+</resources>

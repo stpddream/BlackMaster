@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <Button 
+            android:id="@+id/nav_case"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_case"
+          />
+        
+        
+        <Button
+            android:id="@+id/nav_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_event" 
+         />
+        
+        <Button
+            android:id="@+id/nav_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_settings"
+          />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        
+        <TextView
+            android:id="@+id/tw_case"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_casetitle"
+         />
+        
+        <ListView
+        android:id="@+id/lv_cases"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+        />
+       
+        
+    </LinearLayout>
+
+    
+    
+</LinearLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:orientation="vertical" >
+
+    <TableRow
+        android:id="@+id/profile_tableRow_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tw_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile" />
+    </TableRow>
+
+    <TableRow>
+        android:id="@+id/profile_tableRow_firstName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tw_profile_firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile_firstName"  />
+
+        <EditText
+            android:id="@+id/profile_firstName"
+            android:layout_height="wrap_content"
+            android:hint="@string/profile_firstName"
+            android:inputType="textPersonName" />
+
+    </TableRow>
+
+    <TableRow>
+        android:id="@+id/profile_tableRow_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tw_profile_lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile_lastName" />
+
+        <EditText
+            android:id="@+id/profile_lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/profile_lastName"
+            android:inputType="textPersonName" />
+    </TableRow>
+
+    <TableRow>
+ android:id="@+id/profile_tableRow_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tw_profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile_email" />
+
+        <EditText
+            android:id="@+id/profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/profile_email"
+            android:inputType="textEmailAddress" />
+    </TableRow>
+
+    <TableRow>
+         android:id="@+id/profile_tableRow_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tw_profile_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile_phone" />
+
+        <EditText
+            android:id="@+id/profile_telephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/profile_phone"
+            android:inputType="phone" />
+    </TableRow>
+
+    <TableRow>
+       android:id="@+id/profile_tableRow_barNum"
+        android:layout_width="fill_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/tw_profile_barNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tw_profile_barNum"/>
+
+        <EditText
+            android:id="@+id/profile_barNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/profile_barNum"
+            android:inputType="number"  />
+    </TableRow>
+
+    <TableRow>
+        android:id="@+id/profile_tableRow_autoMessage"
+        android:layout_width="fill_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2" >
+
+        <TextView
+            android:id="@+id/tw_profile_autoMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/tw_autoMessage" 
+            android:layout_weight=".5"/>
+
+        <EditText
+            android:id="@+id/profile_autoMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/profile_autoMessage"
+            android:inputType="textMultiLine"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:layout_weight="1.5" >
+
+            <requestFocus />
+        </EditText>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/profile_tableRow_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+        android:weightSum="2"  >
+
+        <Button
+            android:id="@+id/btn_profile_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="@string/btn_profile_save"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_profile_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:text="@string/btn_profile_submit"
+            android:layout_weight="1" />
+
+    </TableRow>
+
+</TableLayout>
