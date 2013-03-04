@@ -2,6 +2,7 @@ package org.phillyvip.pocketvip.data;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -14,13 +15,18 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.phillyvip.pocketvip.test.*;
 
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
 import android.util.Log;
 
 public class VIPProcessor {
 	
-	public static LinkedList<Case> parseCase(InputStream in) throws ParserConfigurationException, SAXException, IOException {
+	public static LinkedList<Case> parseCase(InputStream in, Context context) 
+			throws ParserConfigurationException, SAXException, IOException {
 		
 		LinkedList<Case> caseList = new LinkedList<Case>();
+		VIPDataWarrior caseWarrior = new VIPDataWarrior(context);
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();	
@@ -49,14 +55,27 @@ public class VIPProcessor {
 				boolean urgentFlag = urgentStr.equals("True")?true:false;
 				
 				Log.i(VIPTest.TESTTAG, "Topic: " + topic);
-
-				caseList.add(new Case(category,topic,caseNumber,description,urgentFlag));
+				
+				caseWarrior.pushDb(
+						new Case(category,topic,caseNumber,description,urgentFlag));
+				//caseList.add(new Case(category,topic,caseNumber,description,urgentFlag));
 
 			}
-
+	
 		}
-		return caseList;
+		
+		return retrieveCaseList(context);
 
 	}
+	
+	public static LinkedList<Case> retrieveCaseList(Context context) {
+		return new VIPDataWarrior(context).queryAll();
+	}
 
+	public static LinkedList<Case> retrieveListBy(String column, String value, Context context) {
+		VIPDataWarrior caseWarrior = new VIPDataWarrior(context);
+		return caseWarrior.filterBy(column, value);
+	}
+  	
+  	
 }

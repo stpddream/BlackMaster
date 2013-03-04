@@ -10,6 +10,8 @@ public class Case implements Parcelable {
 		private String caseNumber;
 		private String description;
 		private boolean urgentFlag;
+		private boolean visitFlag;
+		private boolean appliedFlag;
 		
 		
 		/**
@@ -27,6 +29,9 @@ public class Case implements Parcelable {
 			this.caseNumber = caseNumber;
 			this.description = description;
 			this.urgentFlag = urgentFlag;
+			
+			this.appliedFlag = false;
+			this.visitFlag = false;
 		}
 		
 		public Case(String topic) {

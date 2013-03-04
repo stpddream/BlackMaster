@@ -16,6 +16,7 @@ import org.phillyvip.pocketvip.R.id;
 import org.phillyvip.pocketvip.R.layout;
 import org.phillyvip.pocketvip.R.menu;
 import org.phillyvip.pocketvip.data.Case;
+import org.phillyvip.pocketvip.data.VIPDbHelper;
 import org.phillyvip.pocketvip.data.VIPMessenger;
 import org.phillyvip.pocketvip.data.VIPProcessor;
 import org.xml.sax.SAXException;
@@ -26,6 +27,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -38,6 +40,7 @@ import org.phillyvip.pocketvip.test.*;
 
 public class MainActivity extends Activity {
 	
+	private LinkedList<Case> caseList;
 	private CaseListAdapter caseAdapter;
 	private ListView lvCaseList;
 	private Button btnProfile;
@@ -46,12 +49,14 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+	
+		caseList = new LinkedList<Case>();
 		
 		/* View Init */
 		TextView testView = (TextView) findViewById(R.id.tw_case);
 		lvCaseList = (ListView)findViewById(R.id.lv_cases);
-		LinkedList<Case> caseList = new LinkedList<Case>();
-		 btnProfile = (Button)findViewById(R.id.nav_settings);
+		btnProfile = (Button) findViewById(R.id.nav_settings);
+		final Button btnFilter= (Button) findViewById(R.id.test_filter);
 		
 		 /* Event Handlers */
 		lvCaseList.setOnItemClickListener(new OnItemClickListener() {
@@ -65,18 +70,32 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		btnProfile.setOnClickListener(new View.OnClickListener() {
+		btnProfile.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
         		Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
         		MainActivity.this.startActivity(profileIntent);
             }
         });
 		
+		///////////////// Temp Test File /////////////////
+		btnFilter.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				MainActivity.this.caseList = VIPProcessor.retrieveListBy(
+						VIPDbHelper.KEY_CASE_CATEGORY_COLUMN,
+						"Divorce", MainActivity.this);
+				caseAdapter = new CaseListAdapter(MainActivity.this, R.layout.case_list, caseList);
+				lvCaseList.setAdapter(caseAdapter);
+				caseAdapter.notifyDataSetChanged();
+				
+			}
+		});
 		
 		/*Retrive Data*/
 				
 		try {
-			caseList = VIPProcessor.parseCase(VIPMessenger.initStream(this));
+			caseList = VIPProcessor.parseCase(VIPMessenger.initStream(this), this);
 		} catch(IOException e) {
 			//TODO: improve file error handlers
 			e.printStackTrace();

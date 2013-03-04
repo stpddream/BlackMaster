@@ -28,7 +28,6 @@ public class Profile {
 		this.firstName = firstName;
 		return true;
 	}
-	//hahaha
 
 	public boolean setLastName(String lastName) {
 		this.lastName = lastName;
