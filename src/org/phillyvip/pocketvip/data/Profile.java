@@ -14,13 +14,13 @@ public class Profile {
 	private String autoMessage;
 	
 	//constructor 
-	public Profile(String a, String b,String c,String d,String e,String f){
-		this. firstName = a;
-		this.lastName = b;
-		this.email = c;
-		this.telephone = d;
-		this.barNumber = e;
-		this.autoMessage = f;
+	public Profile(String firstName, String lastName,String email,String telephone,String barNumber,String autoMessage){
+		this. firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.telephone = telephone;
+		this.barNumber = barNumber;
+		this.autoMessage = autoMessage;
 	}
 
 	//Preference preference

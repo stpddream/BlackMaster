@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
 	private CaseListAdapter caseAdapter;
 	private ListView lvCaseList;
 	private Button btnProfile;
+	private Button btnEvent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,8 @@ public class MainActivity extends Activity {
 		TextView testView = (TextView) findViewById(R.id.tw_case);
 		lvCaseList = (ListView)findViewById(R.id.lv_cases);
 		LinkedList<Case> caseList = new LinkedList<Case>();
-		 btnProfile = (Button)findViewById(R.id.nav_settings);
+		btnProfile = (Button)findViewById(R.id.nav_settings);
+		btnEvent = (Button)findViewById(R.id.nav_event);
 		
 		 /* Event Handlers */
 		lvCaseList.setOnItemClickListener(new OnItemClickListener() {
@@ -72,6 +74,12 @@ public class MainActivity extends Activity {
             }
         });
 		
+		btnEvent.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+        		Intent eventIntent = new Intent(MainActivity.this, EventActivity.class);
+        		MainActivity.this.startActivity(eventIntent);
+            }
+        });
 		
 		/*Retrive Data*/
 				
