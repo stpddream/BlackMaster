@@ -39,8 +39,6 @@ public class ProfileActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				try {
-				/*	File myProfile = new File(myProfile.txt");
-					myProfile.createNewFile();*/
 					String FILE_NAME = "myProfile.txt";
 					FileOutputStream fos = openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
 					OutputStreamWriter myOutWriter = new OutputStreamWriter(

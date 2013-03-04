@@ -31,7 +31,32 @@
             android:text="@string/nav_settings"
           />
         
+        <Button 
+            android:id="@+id/test_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter"/>
+        
     </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/sp_cate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        
+        <ToggleButton
+            android:id="@+id/tb_urgent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tb_urgent"
+            android:checked="false"/>
+  
+    </LinearLayout>
+    
     
     <LinearLayout
         android:layout_width="match_parent"
