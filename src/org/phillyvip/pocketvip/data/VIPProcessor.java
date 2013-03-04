@@ -26,7 +26,7 @@ public class VIPProcessor {
 			throws ParserConfigurationException, SAXException, IOException {
 		
 		LinkedList<Case> caseList = new LinkedList<Case>();
-		VIPDataWarrior caseWarrior = new VIPDataWarrior(context);
+		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
 		
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();	
@@ -69,13 +69,18 @@ public class VIPProcessor {
 	}
 	
 	public static LinkedList<Case> retrieveCaseList(Context context) {
-		return new VIPDataWarrior(context).queryAll();
+		return VIPDataWarrior.getInstance(context).queryAll();
 	}
 
-	public static LinkedList<Case> retrieveListBy(String column, String value, Context context) {
-		VIPDataWarrior caseWarrior = new VIPDataWarrior(context);
-		return caseWarrior.filterBy(column, value);
+	public static LinkedList<Case> retrieveListBy(String column, String value, 
+			                                                                                    boolean urgent, Context context) {
+		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
+		return caseWarrior.filterBy(column, value, urgent);
 	}
   	
+	public static LinkedList<String> getAllCategories(Context context) {
+		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
+		return caseWarrior.getAllColumnValue(VIPDbHelper.KEY_CASE_CATEGORY_COLUMN);
+	}
   	
 }

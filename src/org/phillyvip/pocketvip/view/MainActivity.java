@@ -34,16 +34,28 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+
 import org.phillyvip.pocketvip.test.*;
 
 
 public class MainActivity extends Activity {
 	
 	private LinkedList<Case> caseList;
+	private LinkedList<String> categoryList;
 	private CaseListAdapter caseAdapter;
+	private ArrayAdapter<String> cateAdapter;
 	private ListView lvCaseList;
 	private Button btnProfile;
+	private Spinner spCategory;
+	private ToggleButton tbUrgent;
+	
+	/* Status Variables */
+	private boolean urgentFlag;
+	private String cate;
+	private String cateValue;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +64,17 @@ public class MainActivity extends Activity {
 	
 		caseList = new LinkedList<Case>();
 		
+		/* Status Init */
+		urgentFlag = false;
+		cateValue = null;
+		cate = null;
+		
 		/* View Init */
 		TextView testView = (TextView) findViewById(R.id.tw_case);
-		lvCaseList = (ListView)findViewById(R.id.lv_cases);
+		lvCaseList = (ListView) findViewById(R.id.lv_cases);
 		btnProfile = (Button) findViewById(R.id.nav_settings);
+		spCategory = (Spinner) findViewById(R.id.sp_cate);
+		tbUrgent = (ToggleButton) findViewById(R.id.tb_urgent);
 		final Button btnFilter= (Button) findViewById(R.id.test_filter);
 		
 		 /* Event Handlers */
@@ -84,11 +103,25 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				MainActivity.this.caseList = VIPProcessor.retrieveListBy(
 						VIPDbHelper.KEY_CASE_CATEGORY_COLUMN,
-						"Divorce", MainActivity.this);
+						"Divorce", urgentFlag, MainActivity.this);
 				caseAdapter = new CaseListAdapter(MainActivity.this, R.layout.case_list, caseList);
 				lvCaseList.setAdapter(caseAdapter);
 				caseAdapter.notifyDataSetChanged();
+			}
+		});
+		
+		tbUrgent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				if(tbUrgent.isChecked()) urgentFlag = true;
+				else urgentFlag = false;
 				
+				MainActivity.this.caseList = VIPProcessor.retrieveListBy(
+						cate, cateValue, urgentFlag, MainActivity.this);
+				caseAdapter = new CaseListAdapter(MainActivity.this, R.layout.case_list, caseList);
+				lvCaseList.setAdapter(caseAdapter);
+				caseAdapter.notifyDataSetChanged();
 			}
 		});
 		
@@ -120,13 +153,15 @@ public class MainActivity extends Activity {
 		Log.i(VIPTest.TESTTAG,"Goon!!");
 		////////////////////// Test Block //////////////////////////////
 	
-		
-		
-		
 		caseAdapter = new CaseListAdapter(this, R.layout.case_list, caseList);
-		
 		lvCaseList.setAdapter(caseAdapter);
 		caseAdapter.notifyDataSetChanged();
+		
+		//Spinner Content Init
+		categoryList = VIPProcessor.getAllCategories(this);
+		cateAdapter = new ArrayAdapter<String>(
+				this, android.R.layout.simple_spinner_dropdown_item, categoryList);
+		spCategory.setAdapter(cateAdapter);
 		
 	}
 		
