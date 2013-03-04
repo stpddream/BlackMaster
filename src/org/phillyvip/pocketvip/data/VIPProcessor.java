@@ -2,23 +2,23 @@ package org.phillyvip.pocketvip.data;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.phillyvip.pocketvip.R;
+import org.phillyvip.pocketvip.test.VIPTest;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import org.phillyvip.pocketvip.test.*;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
+
+
 
 public class VIPProcessor {
 	
@@ -73,14 +73,17 @@ public class VIPProcessor {
 	}
 
 	public static LinkedList<Case> retrieveListBy(String column, String value, 
-			                                                                                    boolean urgent, Context context) {
+		boolean urgent, Context context) {
 		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
 		return caseWarrior.filterBy(column, value, urgent);
 	}
   	
 	public static LinkedList<String> getAllCategories(Context context) {
 		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
-		return caseWarrior.getAllColumnValue(VIPDbHelper.KEY_CASE_CATEGORY_COLUMN);
+		LinkedList<String> tempList = caseWarrior.getAllColumnValue(
+				VIPDbHelper.KEY_CASE_CATEGORY_COLUMN);
+		tempList.addFirst(context.getString(R.string.sp_item_all));
+		return tempList;
 	}
   	
 }

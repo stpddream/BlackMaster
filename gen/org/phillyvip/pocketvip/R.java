@@ -60,7 +60,8 @@ public final class R {
         public static final int activity_main=0x7f070000;
     }
     public static final class raw {
-        public static final int test=0x7f040000;
+        public static final int bigtest=0x7f040000;
+        public static final int test=0x7f040001;
     }
     public static final class string {
         public static final int app_mail_host=0x7f050019;
@@ -81,6 +82,7 @@ public final class R {
         public static final int profile_firstName=0x7f050007;
         public static final int profile_lastName=0x7f050008;
         public static final int profile_phone=0x7f05000b;
+        public static final int sp_item_all=0x7f05001f;
         public static final int tb_urgent=0x7f05001e;
         public static final int tw_autoMessage=0x7f050012;
         public static final int tw_casetitle=0x7f05000c;

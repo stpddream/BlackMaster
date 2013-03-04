@@ -31,6 +31,7 @@ import android.view.View.OnClickListener;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -68,7 +69,7 @@ public class MainActivity extends Activity {
 		/* Status Init */
 		urgentFlag = false;
 		cateValue = null;
-		cate = null;
+		cate = VIPDbHelper.KEY_CASE_CATEGORY_COLUMN;
 		
 		/* View Init */
 		TextView testView = (TextView) findViewById(R.id.tw_case);
@@ -119,6 +120,37 @@ public class MainActivity extends Activity {
 				caseAdapter.notifyDataSetChanged();
 			}
 		});
+		
+		spCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				cateValue = categoryList.get(arg2);
+				
+				if(cateValue.equals("Show All")) {
+					cateValue = null;
+				}
+				
+				MainActivity.this.caseList = VIPProcessor.retrieveListBy(
+						cate, cateValue, urgentFlag, MainActivity.this);
+				caseAdapter = new CaseListAdapter(MainActivity.this, R.layout.case_list, caseList);
+				lvCaseList.setAdapter(caseAdapter);
+				caseAdapter.notifyDataSetChanged();
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				cateValue = null;
+				
+				MainActivity.this.caseList = VIPProcessor.retrieveListBy(
+						cate, cateValue, urgentFlag, MainActivity.this);
+				caseAdapter = new CaseListAdapter(MainActivity.this, R.layout.case_list, caseList);
+				lvCaseList.setAdapter(caseAdapter);
+				caseAdapter.notifyDataSetChanged();
+			}
+			
+		});
 		/*Retrive Data*/
 				
 		try {
@@ -153,6 +185,11 @@ public class MainActivity extends Activity {
 		
 		//Spinner Content Init
 		categoryList = VIPProcessor.getAllCategories(this);
+		Iterator<String> iterhaha = categoryList.iterator();
+		while(iterhaha.hasNext()) {
+			Log.i(VIPTest.TESTTAG, iterhaha.next());
+		}
+		
 		cateAdapter = new ArrayAdapter<String>(
 				this, android.R.layout.simple_spinner_dropdown_item, categoryList);
 		spCategory.setAdapter(cateAdapter);
