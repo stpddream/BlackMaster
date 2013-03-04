@@ -13,6 +13,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import org.phillyvip.pocketvip.R;
 import org.phillyvip.pocketvip.test.*;
 
 import android.content.ContentResolver;
@@ -80,7 +81,10 @@ public class VIPProcessor {
   	
 	public static LinkedList<String> getAllCategories(Context context) {
 		VIPDataWarrior caseWarrior = VIPDataWarrior.getInstance(context);
-		return caseWarrior.getAllColumnValue(VIPDbHelper.KEY_CASE_CATEGORY_COLUMN);
+		LinkedList<String> tempList = caseWarrior.getAllColumnValue(
+				VIPDbHelper.KEY_CASE_CATEGORY_COLUMN);
+		tempList.addFirst(context.getString(R.string.sp_item_all));
+		return tempList;
 	}
   	
 }
