@@ -25,61 +25,80 @@ public class ProfileActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
+		final String FILE_NAME = "myProfile.txt";
 		
-		//load saved profile
-		//if()
-
-		//constructing reference in activity_profile
 		Button btnProfileSave = (Button) findViewById(R.id.btn_profile_save);
 		final EditText etProfileFirstName = (EditText) findViewById(R.id.profile_firstName);
 		final EditText etProfileLastName = (EditText) findViewById(R.id.profile_lastName);
-		final EditText etProfileMail = (EditText) findViewById(R.id.profile_email);
+		final EditText etProfileEmail = (EditText) findViewById(R.id.profile_email);
 		final EditText etProfileTelephone = (EditText) findViewById(R.id.profile_telephone);
 		final EditText etProfileBarNumber = (EditText) findViewById(R.id.profile_barNum);
 		final EditText etProfileAutoMessage = (EditText) findViewById(R.id.profile_autoMessage);
+
+		//load saved profile
+		try{
+		FileInputStream fis = openFileInput(FILE_NAME);
+		InputStreamReader in = new InputStreamReader(fis);
+		BufferedReader br = new BufferedReader(in);
+		String SavedFirstName = br.readLine();
+		etProfileFirstName.setText(SavedFirstName);	
+		String SavedLastName = br.readLine();
+		etProfileLastName.setText(SavedLastName);	
+		String SavedEmail = br.readLine();
+		etProfileEmail.setText(SavedEmail);	
+		String SavedTelephone = br.readLine();
+		etProfileTelephone.setText(SavedTelephone);	
+		String SavedBarNumber = br.readLine();
+		etProfileBarNumber.setText(SavedBarNumber);	
+		String SavedAutoMessage = br.readLine();
+		etProfileAutoMessage.setText(SavedAutoMessage);	
+		//Log.i(VIPTest.TESTTAG, data);
+		}catch(Exception e){
+			
+		}
+			//constructing reference in activity_profile
+	
 
 		btnProfileSave.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				try {
-					String FILE_NAME = "myProfile.txt";
 					FileOutputStream fos = openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
 					OutputStreamWriter myOutWriter = new OutputStreamWriter(
 							fos);
-					
-					String ProfileFirstName = etProfileFirstName.getText() + "/n";
+
+					String ProfileFirstName = etProfileFirstName.getText() + "\n";
 					myOutWriter.append(ProfileFirstName);
-					myOutWriter.append(etProfileLastName.getText() + "/n");
-					myOutWriter.append(etProfileMail.getText() + "/n");
-					myOutWriter.append(etProfileTelephone.getText() + "/n");
-					myOutWriter.append(etProfileBarNumber.getText() + "/n");
-					myOutWriter.append(etProfileAutoMessage.getText() + "/n");
+					myOutWriter.append(etProfileLastName.getText() + "\n");
+					myOutWriter.append(etProfileEmail.getText() + "\n");
+					myOutWriter.append(etProfileTelephone.getText() + "\n");
+					myOutWriter.append(etProfileBarNumber.getText() + "\n");
+					myOutWriter.append(etProfileAutoMessage.getText() + "\n");
 
 					myOutWriter.close();
 					fos.close();
-					FileInputStream fis = openFileInput(FILE_NAME);
+					/*FileInputStream fis = openFileInput(FILE_NAME);
 					InputStreamReader in = new InputStreamReader(fis);
 					BufferedReader br = new BufferedReader(in);
 					String data = br.readLine();
-					Log.i(VIPTest.TESTTAG, data);
-					
+					Log.i(VIPTest.TESTTAG, data);*/
+
 				} catch (Exception e) {
 					Toast.makeText(getBaseContext(), e.getMessage(),
 							Toast.LENGTH_SHORT).show();
 				}
 			} // onClick
 		}); // setOnClickListener
-		
+
 		//home button
 		Button btnProfileHome = (Button) findViewById(R.id.btn_profile_home);
-		
+
 		btnProfileHome.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-        		Intent homeIntent = new Intent(ProfileActivity.this, MainActivity.class);
-        		ProfileActivity.this.startActivity(homeIntent);
-            }
+			public void onClick(View view) {
+				Intent homeIntent = new Intent(ProfileActivity.this, MainActivity.class);
+				ProfileActivity.this.startActivity(homeIntent);
+			}
 
-        });
+		});
 	}
-
 }
