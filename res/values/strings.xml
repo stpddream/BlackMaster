@@ -43,5 +43,6 @@
      <string name="tw_case_description_text">Description: </string><string name="tw_case_urgent_text">URGENT!</string>
      
        
-
+	 <string name="tw_basket_title">Basket: </string>
+     
 </resources>

@@ -23,33 +23,11 @@
             android:id="@+id/tw_case_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:inputType="textMultiLine" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/detail_tableRow_topic"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:weightSum="2" >
-
-        <TextView
-            android:id="@+id/tw_case_topic_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/tw_case_topic_text" />
-
-        <TextView
-            android:id="@+id/tw_case_topic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_weight="1.5" />
     </TableRow>
 
     <TableRow
-        android:id="@+id/detail_tableRow_category"
+        android:id="@+id/detail_tableRow_topic1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -57,22 +35,31 @@
 
         <TextView
             android:id="@+id/tw_case_topic_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="@string/tw_case_category_text" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tw_case_topic_text" />
+
+        <Button
+            android:id="@+id/btn_apply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/btn_caseDetail_apply"
+            android:weightSum="1" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/detail_tableRow_topic2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2" >
 
         <TextView
-            android:id="@+id/tw_case_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.3" />
-
-        <TextView
-            android:id="@+id/tw_case_urgent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight=".2" />
+            android:id="@+id/tw_case_topic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2" />
     </TableRow>
 
     <TableRow
@@ -83,30 +70,36 @@
         android:weightSum="2" >
 
         <TextView
+            android:id="@+id/tw_case_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5" />
+
+        <TextView
+            android:id="@+id/tw_case_urgent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".5" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/detail_tableRow_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
             android:id="@+id/tw_case_description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight=".5"
             android:text="@string/tw_case_description_text" />
 
         <TextView
             android:id="@+id/tw_case_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1.5"
             android:inputType="textMultiLine" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/detail_tableRow_apply"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/btn_apply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_caseDetail_apply" />
     </TableRow>
 
 </TableLayout>
