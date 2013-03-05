@@ -164,7 +164,7 @@
             android:layout_weight="1"
             android:text="@string/btn_profile_submit" />
     </TableRow>
-          android:id="@+id/profile_tableRow_btn_home"
+        android:id="@+id/profile_tableRow_btn_home"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
          android:layout_alignParentBottom="true" >

@@ -37,6 +37,11 @@
      <string name="tb_urgent">Urgent</string>
      
      <string name="sp_item_all">Show All</string>
+     <string name="tw_case_number_text">Case Number: </string>
+     <string name="tw_case_topic_text">Topic: </string>
+     <string name="tw_case_category_text">Category: </string>
+     <string name="tw_case_description_text">Description: </string><string name="tw_case_urgent_text">URGENT!</string>
+     
        
 
 </resources>
