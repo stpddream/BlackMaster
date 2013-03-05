@@ -25,8 +25,11 @@ public class ProfileActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile);
+		
+		//load saved profile
+		//if()
 
-
+		//constructing reference in activity_profile
 		Button btnProfileSave = (Button) findViewById(R.id.btn_profile_save);
 		final EditText etProfileFirstName = (EditText) findViewById(R.id.profile_firstName);
 		final EditText etProfileLastName = (EditText) findViewById(R.id.profile_lastName);
@@ -43,8 +46,9 @@ public class ProfileActivity extends Activity {
 					FileOutputStream fos = openFileOutput(FILE_NAME,Context.MODE_PRIVATE);
 					OutputStreamWriter myOutWriter = new OutputStreamWriter(
 							fos);
-
-					myOutWriter.append(etProfileFirstName.getText() + "/n");
+					
+					String ProfileFirstName = etProfileFirstName.getText() + "/n";
+					myOutWriter.append(ProfileFirstName);
 					myOutWriter.append(etProfileLastName.getText() + "/n");
 					myOutWriter.append(etProfileMail.getText() + "/n");
 					myOutWriter.append(etProfileTelephone.getText() + "/n");
@@ -66,6 +70,7 @@ public class ProfileActivity extends Activity {
 			} // onClick
 		}); // setOnClickListener
 		
+		//home button
 		Button btnProfileHome = (Button) findViewById(R.id.btn_profile_home);
 		
 		btnProfileHome.setOnClickListener(new View.OnClickListener() {
