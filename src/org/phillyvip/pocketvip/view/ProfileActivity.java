@@ -54,7 +54,7 @@ public class ProfileActivity extends Activity {
 		etProfileAutoMessage.setText(SavedAutoMessage);	
 		//Log.i(VIPTest.TESTTAG, data);
 		}catch(Exception e){
-			
+			System.out.print("Empty Profile");
 		}
 			//constructing reference in activity_profile
 	
